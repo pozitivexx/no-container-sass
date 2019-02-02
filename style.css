@@ -1,0 +1,31 @@
+@media (max-width: 460px) {
+  .no-container-xs {
+    max-width: 100%;
+    padding: 0;
+    margin: 0; } }
+
+@media (max-width: 768px) {
+  .no-container-sm {
+    max-width: 100%;
+    padding: 0;
+    margin: 0; } }
+
+@media (max-width: 992px) {
+  .no-container-md {
+    max-width: 100%;
+    padding: 0;
+    margin: 0; } }
+
+@media (max-width: 1200px) {
+  .no-container-lg {
+    max-width: 100%;
+    padding: 0;
+    margin: 0; } }
+
+@media (min-width: 1200px) {
+  .no-container-xl {
+    max-width: 100%;
+    padding: 0;
+    margin: 0; } }
+
+/*# sourceMappingURL=style.css.map */

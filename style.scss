@@ -1,0 +1,30 @@
+
+$screen-sm-max: 460; // Small tablets and large smartphones (landscape view)
+$screen-md-max: 768; // Small tablets (portrait view)
+$screen-lg-max: 992; // Tablets and small desktops
+$screen-xl-min: 1200; // desktops
+
+$screenSizes: (
+				'xs' '(max-width: '+$screen-sm-max+'px)',
+				'sm' '(max-width: '+$screen-md-max+'px)',
+				'md' '(max-width: '+$screen-lg-max+'px)',
+				'lg' '(max-width: '+$screen-xl-min+'px)',
+				'xl' '(min-width: '+$screen-xl-min+'px)'
+);
+
+@mixin screen-size($query) {
+	@media #{$query} {
+		@content;
+	}
+}
+
+@each $key,$map in $screenSizes {
+	.no-container-#{$key} {
+
+		@include screen-size( $map ) {
+			max-width: 100%;
+			padding: 0;
+			margin: 0;
+		}
+	}
+}
