@@ -1,1 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
+.idea/deployment.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/no-container-sass.iml
+.idea/workspace.xml
+bootstrap-4.1.3/

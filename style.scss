@@ -1,3 +1,6 @@
+@import 'bootstrap-4.1.3/scss/bootstrap';
+@import 'bootstrap-4.1.3/scss/bootstrap-grid';
+@import 'bootstrap-4.1.3/scss/bootstrap-reboot';
 
 $screen-sm-max: 460; // Small tablets and large smartphones (landscape view)
 $screen-md-max: 768; // Small tablets (portrait view)
@@ -18,13 +21,60 @@ $screenSizes: (
 	}
 }
 
-@each $key,$map in $screenSizes {
-	.no-container-#{$key} {
+@each $key, $map in $screenSizes {
 
-		@include screen-size( $map ) {
+	@include screen-size($map) {
+		.no-container-#{$key} {
 			max-width: 100%;
 			padding: 0;
 			margin: 0;
 		}
+
+		.no-gutters-#{$key} {
+			padding: 0;
+			margin: 0;
+		}
+
+		.no-padding-#{$key} {
+			padding: 0;
+		}
+
+		.no-margin-#{$key} {
+			margin: 0;
+		}
+
+		.hidden-#{$key} {
+			display: none;
+		}
+
+		@each $breakpoint in map-keys($grid-breakpoints) {
+			@include media-breakpoint-up($breakpoint) {
+
+				@each $prop, $abbrev in (margin: m, padding: p) {
+					@each $size, $length in $spacers {
+						.#{$abbrev}-#{$key}-#{$size} {
+							#{$prop}: $length !important;
+						}
+						.#{$abbrev}t-#{$key}-#{$size},
+						.#{$abbrev}y-#{$key}-#{$size} {
+							#{$prop}-top: $length !important;
+						}
+						.#{$abbrev}r-#{$key}-#{$size},
+						.#{$abbrev}x-#{$key}-#{$size} {
+							#{$prop}-right: $length !important;
+						}
+						.#{$abbrev}b-#{$key}-#{$size},
+						.#{$abbrev}y-#{$key}-#{$size} {
+							#{$prop}-bottom: $length !important;
+						}
+						.#{$abbrev}l-#{$key}-#{$size},
+						.#{$abbrev}x-#{$key}-#{$size} {
+							#{$prop}-left: $length !important;
+						}
+					}
+				}
+			}
+		}
+
 	}
 }
